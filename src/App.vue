@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-
+      <router-link to="/about">About</router-link> |
       <router-link to="/git">GitHub</router-link>
     </div>
     <router-view />
@@ -32,6 +32,6 @@
 }
 
 body {
-  background: rgb(244, 248, 252);
+  background: rgb(249, 252, 248);
 }
 </style>
