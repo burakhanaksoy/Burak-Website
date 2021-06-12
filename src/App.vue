@@ -2,6 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
+
       <router-link to="/git">GitHub</router-link>
     </div>
     <router-view />
@@ -28,5 +29,9 @@
       color: #42b983;
     }
   }
+}
+
+body {
+  background: rgb(244, 248, 252);
 }
 </style>
