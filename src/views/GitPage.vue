@@ -2,9 +2,9 @@
   <div class="page">
     <spinner :isActive="spinnerActive" />
     <h1>Burakhan Aksoy</h1>
-    <b-container class="bv-example-row">
-      <b-row class="row">
-        <div v-for="repo in repos" :key="repo.repo">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-xs-3" v-for="repo in repos" :key="repo.repo">
           <gitcards
             :repo="repo.repo"
             :description="repo.description"
@@ -12,8 +12,8 @@
             :link="repo.link"
           />
         </div>
-      </b-row>
-    </b-container>
+      </div>
+    </div>
   </div>
 </template>
 
