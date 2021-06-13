@@ -4,8 +4,18 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
+  state: {
+    language:"en"
+  },
+  mutations: {
+    SET_LANGUAGE:(state,val) => {
+      state.language = val;
+    },
+  },
+  actions: {
+    setLanguage:(context, val) => {
+      context.commit("SET_LANGUAGE",val);
+    },
+  },
   modules: {},
 });

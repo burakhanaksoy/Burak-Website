@@ -42,5 +42,4 @@ export default {
   mounted() {},
 };
 </script>
-<style scoped>
-</style>
+<style scoped></style>
