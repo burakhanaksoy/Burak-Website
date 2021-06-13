@@ -13,7 +13,7 @@
         alt="Python Logo"
         src="../../utils/photos/Python-Transparent-Background.png"
       />
-      {{ developerText }}.<br />
+      {{ developerText }}<br />
     </p>
   </div>
 </template>
