@@ -5,28 +5,28 @@
         <h1>{{ myName }}</h1>
       </div>
       <div class="row">
-        <div class="col-md-3 col-xs-6">
+        <div class="col-md-6 col-xs-6">
           <img
             class="my-picture-about-page"
             alt="My Picture"
             src="../../utils/photos/about-page-picture.jpg"
           />
           <div class="row justify-content-center" style="">
-            <div class="col-md-3 col-xs-12 mr-4">
+            <div class="col-md-2 col-xs-12">
               <img
                 class="logos"
                 src="../../utils/photos/ted-logo.png"
                 alt="TED University logo"
               />
             </div>
-            <div class="col-md-3 col-xs-12 mr-3">
+            <div class="col-md-2 col-xs-12">
               <img
                 class="east-china-logo"
                 src="../../utils/photos/East_China_Normal_University_logo.svg.png"
                 alt="East China Normal University logo"
               />
             </div>
-            <div class="col-md-3 col-xs-12 mr-3">
+            <div class="col-md-2 col-xs-12">
               <img
                 class="logos"
                 src="../../utils/photos/Shanghai-Jiao-Tong-University-01.png"
@@ -35,7 +35,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-9 col-xs-6">
+        <div class="col-md-6 col-xs-6">
           <h2 class="background-title">{{ story }}</h2>
           <ul>
             <li>{{ schoolingInfo }}</li>

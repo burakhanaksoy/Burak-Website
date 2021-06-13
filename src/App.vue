@@ -1,20 +1,20 @@
 <template>
   <div id="app">
     <div class="container">
-      <div class="d-flex align-items-center justify-content-md-end">
-        <div class="col-md-8 col-xs-12">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-12">
           <div id="nav">
             <router-link to="/">{{ this.home }}</router-link> |
             <router-link to="/about">{{ this.about }}</router-link> |
             <router-link to="/git">{{ this.github }}</router-link>
           </div>
         </div>
-        <div id="lang-bar" class="col-xs-12 col-md-2">
+        <div id="lang-bar" class="col-0">
           <localeSwitcher />
         </div>
       </div>
       <div class="row">
-        <div class="col">
+        <div class="col-md-12">
           <router-view />
         </div>
       </div>
@@ -71,7 +71,7 @@ export default {
 }
 
 #nav {
-  padding: 30px;
+  padding-top: 30px;
 
   a {
     font-weight: bold;
