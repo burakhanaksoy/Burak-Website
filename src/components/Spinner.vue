@@ -1,4 +1,4 @@
-<template >
+<template>
   <div v-if="isActive" class="text-center">
     <b-spinner
       variant="primary"
@@ -16,5 +16,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

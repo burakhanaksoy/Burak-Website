@@ -2,11 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <a class="lang">en</a>
+        <a class="lang" @click="changeLang">en</a>
       </div>
       |
       <div class="col">
-        <a class="lang">zh</a>
+        <a class="lang" @click="changeLang">zh</a>
       </div>
     </div>
   </div>
@@ -16,7 +16,7 @@
 import { mapState, mapActions } from "vuex";
 
 export default {
-  name: "LanguageBar",
+  name: "LocaleSwitcher",
   data: function () {
     return {};
   },
@@ -26,11 +26,11 @@ export default {
     }),
   },
   watch: {
-    lang: function () {
-      //   if (val) {
-      //     this.changeLang(val);
-      //   }
-    },
+    // lang: function (val) {
+    //   if (val) {
+    //     this.changeView(val);
+    //   }
+    // },
   },
   methods: {
     ...mapActions(["setLanguage"]),
@@ -39,6 +39,11 @@ export default {
       this.$store.dispatch("setLanguage", val);
     },
 
+    // switchLocale: (locale) => {
+    //   if (this.$i18n.locale !== locale) {
+    //     this.$i18n.locale = locale;
+    //   }
+    // },
     // doSMH: function (event) {
     //   var val = event.target.innerText;
     //   console.log("clicked to " + val);

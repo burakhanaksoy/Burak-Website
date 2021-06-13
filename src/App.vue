@@ -4,13 +4,13 @@
       <div class="d-flex align-items-center justify-content-md-end">
         <div class="col-md-8 col-xs-12">
           <div id="nav">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/about">About</router-link> |
-            <router-link to="/git">GitHub</router-link>
+            <router-link to="/">{{ this.home }}</router-link> |
+            <router-link to="/about">{{ this.about }}</router-link> |
+            <router-link to="/git">{{ this.github }}</router-link>
           </div>
         </div>
         <div id="lang-bar" class="col-xs-12 col-md-2">
-          <langComponent />
+          <localeSwitcher />
         </div>
       </div>
       <div class="row">
@@ -23,11 +23,41 @@
 </template>
 
 <script>
-import LanguageBarVue from "./components/LanguageBar.vue";
+import LocaleSwitcher from "./components/LocaleSwitcher.vue";
+import { mapState } from "vuex";
 export default {
   name: "App",
   components: {
-    langComponent: LanguageBarVue,
+    localeSwitcher: LocaleSwitcher,
+  },
+  data: function () {
+    return {
+      home: this.$t("home"),
+      about: this.$t("about"),
+      github: this.$t("github"),
+    };
+  },
+  computed: {
+    ...mapState({
+      lang: "language",
+    }),
+  },
+
+  watch: {
+    lang: function (val) {
+      if (val) {
+        this.changeView(val);
+      }
+    },
+  },
+
+  methods: {
+    changeView: function (val) {
+      this.$i18n.locale = val;
+      this.home = this.$t("home");
+      this.about = this.$t("about");
+      this.github = this.$t("github");
+    },
   },
 };
 </script>

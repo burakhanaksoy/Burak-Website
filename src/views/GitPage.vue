@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <spinner :isActive="spinnerActive" />
-    <h1>Burakhan Aksoy</h1>
+    <h1>{{ myName }}</h1>
     <div class="container">
       <div class="row justify-content-center align-items-center">
         <div class="col-xs-3" v-for="repo in repos" :key="repo.repo">
@@ -21,12 +21,17 @@
 import GitCards from "@/components/GitCards.vue";
 import Spinner from "@/components/Spinner.vue";
 import axios from "axios";
-
+import { mapState } from "vuex";
 export default {
   name: "GitPage",
   components: {
     gitcards: GitCards,
     spinner: Spinner,
+  },
+  computed: {
+    ...mapState({
+      lang: "language",
+    }),
   },
   data: function () {
     return {
@@ -36,7 +41,15 @@ export default {
       //   link: "",
       repos: [],
       spinnerActive: false,
+      myName: this.$t("myName"),
     };
+  },
+  watch: {
+    lang: function (val) {
+      if (val) {
+        this.changeView(val);
+      }
+    },
   },
   methods: {
     fetchData: async function () {
@@ -65,6 +78,10 @@ export default {
     },
     hideSpinner: function () {
       this.spinnerActive = false;
+    },
+    changeView: function (val) {
+      this.$i18n.locale = val;
+      this.myName = this.$t("myName");
     },
   },
 

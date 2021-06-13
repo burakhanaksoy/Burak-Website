@@ -5,24 +5,51 @@
       alt="My Picture"
       src="../../utils/photos/website_profile_pic.jpeg"
     />
-    <h1 class="message">{{ msg }}</h1>
+    <h1 class="message">{{ helloMessage }}</h1>
     <p>
-      I'm Burakhan. A Junior
+      {{ greetingMessage }}
       <img
         class="logo-python"
         alt="Python Logo"
         src="../../utils/photos/Python-Transparent-Background.png"
       />
-      Developer.<br />
+      {{ developerText }}.<br />
     </p>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "HelloWorld",
-  props: {
-    msg: String,
+  data: function () {
+    return {
+      helloMessage: this.$t("hello"),
+      greetingMessage: this.$t("greeting-msg"),
+      developerText: this.$t("developer"),
+    };
+  },
+  computed: {
+    ...mapState({
+      lang: "language",
+    }),
+  },
+
+  watch: {
+    lang: function (val) {
+      if (val) {
+        this.changeView(val);
+      }
+    },
+  },
+
+  methods: {
+    changeView: function (val) {
+      this.$i18n.locale = val;
+      this.helloMessage = this.$t("hello");
+      this.greetingMessage = this.$t("greeting-msg");
+      this.developerText = this.$t("developer");
+    },
   },
 };
 </script>

@@ -2,7 +2,7 @@
   <div class="about">
     <div class="container">
       <div class="row justify-content-center">
-        <h1>Burakhan Aksoy</h1>
+        <h1>{{ myName }}</h1>
       </div>
       <div class="row">
         <div class="col-md-3 col-xs-6">
@@ -36,19 +36,14 @@
           </div>
         </div>
         <div class="col-md-9 col-xs-6">
-          <h2 class="background-title">Story</h2>
+          <h2 class="background-title">{{ story }}</h2>
           <ul>
+            <li>{{ schoolingInfo }}</li>
+            <li>{{ schoolingShanghai }}</li>
+            <li>{{ hskExam }}</li>
+            <li>{{ testing }}</li>
             <li>
-              Graduated from TED University Electrical & Electronics engineering
-              department
-            </li>
-            <li>Been to Shanghai to learn Chinese in my gap year</li>
-            <li>Passed HSK 5 exam (274/300)</li>
-            <li>Worked as a software test engineer for 1.5 years</li>
-            <li>
-              <span class="passion"
-                >Found a passion in software development and studied</span
-              >
+              <span class="passion">{{ passion }}</span>
             </li>
             <img
               class="logos"
@@ -61,13 +56,61 @@
               alt="TED University logo"
             />
             <hr />
-            <li>Now, working as a Junior Python developer</li>
+            <li>{{ work }}</li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import { mapState } from "vuex";
+export default {
+  name: "About",
+  data: function () {
+    return {
+      myName: this.$t("myName"),
+      story: this.$t("story"),
+      developerText: this.$t("developer"),
+      schoolingInfo: this.$t("story-school"),
+      schoolingShanghai: this.$t("story-shanghai"),
+      hskExam: this.$t("hsk-exam"),
+      testing: this.$t("test-engineering"),
+      passion: this.$t("passion"),
+      work: this.$t("work"),
+    };
+  },
+  computed: {
+    ...mapState({
+      lang: "language",
+    }),
+  },
+
+  watch: {
+    lang: function (val) {
+      if (val) {
+        this.changeView(val);
+      }
+    },
+  },
+
+  methods: {
+    changeView: function (val) {
+      this.$i18n.locale = val;
+      this.myName = this.$t("myName");
+      this.story = this.$t("story");
+      this.schoolingInfo = this.$t("story-school");
+      this.schoolingShanghai = this.$t("story-shanghai");
+      this.hskExam = this.$t("hsk-exam");
+      this.testing = this.$t("test-engineering");
+      this.passion = this.$t("passion");
+      this.work = this.$t("work");
+    },
+  },
+};
+</script>
+
 <style scoped>
 .my-picture-about-page {
   width: 15rem;

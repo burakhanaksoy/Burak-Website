@@ -2,13 +2,11 @@
   "name": "my_website",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "14.x"
-  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\"",
     "start": "node server.js"
   },
   "dependencies": {
@@ -43,6 +41,7 @@
     "sass": "^1.26.11",
     "sass-loader": "^10.0.2",
     "vue-cli-plugin-bootstrap-vue": "~0.7.0",
+    "vue-cli-plugin-i18n": "~2.1.1",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
@@ -64,5 +63,8 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "engines": {
+    "node": "14.x"
+  }
 }
