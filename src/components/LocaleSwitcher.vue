@@ -2,11 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <a class="lang" @click="changeLang">en</a>
+        <a @click="changeLang" :class="classEn">en</a>
       </div>
       |
       <div class="col">
-        <a class="lang" @click="changeLang">zh</a>
+        <a @click="changeLang" :class="classZh">zh</a>
       </div>
     </div>
   </div>
@@ -18,7 +18,10 @@ import { mapState, mapActions } from "vuex";
 export default {
   name: "LocaleSwitcher",
   data: function () {
-    return {};
+    return {
+      classEn: "isActive",
+      classZh: "isNotActive",
+    };
   },
   computed: {
     ...mapState({
@@ -37,6 +40,13 @@ export default {
     changeLang: function (event) {
       var val = event.target.innerText;
       this.$store.dispatch("setLanguage", val);
+      if (val === "zh") {
+        this.classZh = "isActive";
+        this.classEn = "isNotActive";
+      } else {
+        this.classEn = "isActive";
+        this.classZh = "isNotActive";
+      }
     },
 
     // switchLocale: (locale) => {
@@ -127,4 +137,12 @@ a:hover {
   left: 10px;
   top: 30px;
 } */
+
+.isActive {
+  color: #42b983;
+}
+
+.isNotActive {
+  color: #007bff;
+}
 </style>
